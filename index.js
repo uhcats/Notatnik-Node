@@ -4,12 +4,19 @@ const {
   port
 } = require('./config');
 const apiRouter = require('./routes/api');
+const bodyParser = require('body-parser');
 
 // db
 require('./db/mongoose');
 
+
+// parsery
+// Content-type: application/json
+
+app.use(bodyParser.json());
+
 // ROUTES
-app.use('/', apiRouter);
+app.use('/api', apiRouter);
 
 
 
